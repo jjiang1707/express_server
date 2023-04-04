@@ -28,6 +28,7 @@ const authenticationRequired = async (req, res, next) => {
   }
 };
 
+
 // Api routes
 app.get('/', (req, res) => {
   res.send('Home!')
@@ -37,9 +38,16 @@ app.get('/api/hello', (req, res) => {
     res.send('Hello world!');
 });
 
+
 app.get('/api/whoami', authenticationRequired, (req, res) => {
-    res.send('You got me revealing my secrets!');
-});
+    const user = req.jwt.claims.sub;
+    const scopes = req.jwt.claims.scp || [];
+    if (scopes.includes('admin')) {
+      res.send(`Hello ${user}, you are an admin!`);
+    } else {
+      res.send(`Hello ${user}, you have basic access.`);
+    }
+  });
 
 
 app
