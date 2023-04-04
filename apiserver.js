@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
   res.send('Home!')
 })
 
+// unauthenticated
 app.get('/api/hello', (req, res) => {
     res.send('Hello world!');
 });
