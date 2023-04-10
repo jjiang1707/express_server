@@ -4,9 +4,9 @@ const port = 3000;
 
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://trial-5793640.okta.com/oauth2/default'
+  issuer: 'https://trial-5793640.okta.com/oauth2/aus4vdw35aJaLO1IC697'
 });
-const audience = 'api://default';
+const audience = 'api://cybersnips';
 
 //Authenitcation middleware
 const authenticationRequired = async (req, res, next) => {
